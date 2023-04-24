@@ -1,39 +1,106 @@
+body {
+  margin:0;
+  padding:0;
+  background: darkcyan;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .App {
-  background: beige;
+  min-width: 1000px;
+  margin: 20px;
+  padding-left: 250px;
+  height: 580px;
+  background: #153a3a;
   border-radius: 25px;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 5px 5px 5px #173333;
+  .svg{
+    display: none;
+    background: chocolate;
+  }
   .boxImg {
+    text-align: center;
+    margin: auto;
     padding: 35px;
-    background: white;
+    padding-bottom: 20px;
+    background: darkcyan;
+    outline: 4px solid #004800 ;
+    box-shadow: 5px 5px 5px #173333;
     border-radius: 35px;
     width: 500px;
-    margin-right: auto;
-    margin-left: auto;
-    .imgInput {
-      margin-right: auto;
-      margin-left: auto;
+    button{
+      border: none;
+      outline: 2px solid #004800 ;
+      margin-top: 20px;
+      margin-left: 40px;
+      margin-right: 40px;
+      background: none;
+      border-radius: 15px;
+    }
+    button : hover{
+
     }
 
     .box {
       margin: auto;
-      outline: 2px solid #f31010;
-      display: flex;
+      outline: 2px solid #004800;
       height: 300px;
       width: 400px;
+      box-shadow: 5px 5px 5px #002f00;
+
 
       img {
         width: 100%;
+        height: 100%;
       }
     }
   }
   .leftPanel {
-    height: 125%;
-    width: 300px;
-    margin-left: 10px;
-    background: white;
-
+    margin-left: auto;
+    margin-right: 25px;
+    width: 200px;
+    text-align: center;
+    background: darkcyan;
+    outline: 4px solid #004800;
+    box-shadow: 5px 5px 5px #002f00;
     border-radius: 35px;
+    button{
+      border: none;
+      outline: 2px solid #004800 ;
+      background: none;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+    .leftPanelInfo{
+      padding-top: 10px;
+    }
     .filter {
+      padding: 5px;
+      margin: 15px;
+      outline: 2px solid #004800;
+      border-radius: 8px;
+    }
+  }
+  .rightPanel{
+    margin-left: 25px;
+    margin-right: auto;
+    width: 200px;
+    text-align: center;
+    background: darkcyan;
+    outline: 4px solid #004800;
+    box-shadow: 5px 5px 5px #002f00;
+    border-radius: 35px;
+    .rightPanelInfo{
+      padding: 5px;
+    }
+    .filter {
+      padding: 5px;
+      margin: 15px;
+      outline: 2px solid #004800;
+      border-radius: 8px;
     }
   }
 }

@@ -56,37 +56,87 @@ function App() {
 
     const ChangeFilterImage5 = (e) => {
         let count=""
-        for (let i=0.1;i<e;i+=0.1){
+        for (let i=0.1;i<e;i+=0.01){
             count=i+' '
         }
         setRed(count)
         setsliderRed(e)
-        changeGrayscale()
     }
     const ChangeFilterImage6 = (e) => {
         let count=""
-        for (let i=0.1;i<e;i+=0.1){
+        for (let i=0.1;i<e;i+=0.01){
             count=i+' '
         }
         setGreen(count)
         setsliderGreen(e)
-        changeGrayscale()
     }
     const ChangeFilterImage7 = (e) => {
         let count=""
-        for (let i=0.1;i<e;i+=0.1){
+        for (let i=0.1;i<e;i+=0.01){
             count=i+' '
         }
         setBlue(count)
         setsliderBlue(e)
+    }
+    const FiltersReset =()=>{
+      setSlider(0);
+      setSlider2(0);
+      setSlider3(100);
+      setSlider4(100);
+      setsliderBlue(0)
+        setsliderRed(0)
+        setsliderGreen(0)
+        ChangeFilterImage7(0)
+        ChangeFilterImage6(0)
+        ChangeFilterImage5(0)
         changeGrayscale()
+
     }
 
 
   return (
 
       <div className="App">
-          <svg width="500" height="0" viewBox="0 0 500 335">
+
+          <div className="leftPanel">
+              <div className="leftPanelInfo">Фильтры</div>
+              <div className="filter">Grayscale
+                  <input className="rangeInput" type='range' min='0' max='100' step='1' value={slider} onChange={(e)=>ChangeFilterImage(e.target.value)}/>
+              </div>
+              <div className="filter">Sepia
+                  <br></br>
+                  <input className="rangeInput" type='range' min='0' max='100' step='1' value={slider2} onChange={(e)=>ChangeFilterImage2(e.target.value)}/>
+              </div>
+              <div className="filter">Brightness
+                  <input className="rangeInput" type='range' min='0' max='300' step='1' value={slider3} onChange={(e)=>ChangeFilterImage3(e.target.value)}/>
+              </div>
+              <div className="filter">Contrast
+                  <input className="rangeInput" type='range' min='0' max='200' step='1' value={slider4} onChange={(e)=>ChangeFilterImage4(e.target.value)}/>
+              </div>
+              <button onClick={FiltersReset}>Сбросить фильтры</button>
+
+
+          </div>
+          <div className="boxImg">
+        <input className="imgInput" type="file" id="file" accept="image/*" onChange={ChangeImage} hidden/>
+        <div id="img-area" className="box"> {imageUrls.map(img=> <img id="img" src={img} alt="" width='auto' height='auto'/>)}</div>
+              <button onClick={()=>document.getElementById("file").click()}>Вставить картинку</button>
+              <button>скачать</button>
+          </div>
+              <div className="rightPanel">
+                  <div className="rightPanelInfo">Ванильный фильтр</div>
+              <div className="filter">Red
+                  <br/>
+                  <input className="rangeInput" type='range' min='0' max='1' step='0.01' value={sliderRed} onChange={(e)=>ChangeFilterImage5(e.target.value)}/>
+              </div>
+              <div className="filter">Green
+                  <input className="rangeInput" type='range' min='0' max='1' step='0.01' value={sliderGreen} onChange={(e)=>ChangeFilterImage6(e.target.value)} />
+              </div>
+              <div className="filter">Blue
+                  <input className="rangeInput" type='range' min='0' max='1' step='0.01' value={sliderBlue} onChange={(e)=>ChangeFilterImage7(e.target.value)}/>
+              </div>
+          </div>
+          <svg>
               <filter id="posterize">
                   <feComponentTransfer>
                       <feFuncR type="table" tableValues={Red} />
@@ -95,39 +145,6 @@ function App() {
                   </feComponentTransfer>
               </filter>
           </svg>
-          <div className="boxImg">
-        <input className="imgInput" type="file" id="file" accept="image/*" onChange={ChangeImage} hidden/>
-              <button onClick={()=>document.getElementById("file").click()}>Вставить картинку</button>
-        <div id="img-area" className="box"> {imageUrls.map(img=> <img id="img" src={img} alt="" width='auto' height='auto'/>)}</div>
-              <button>скачать</button>
-          </div>
-          <div className="leftPanel">
-        <div className="filter">Grayscale
-        <input className="rangeInput" type='range' min='0' max='100' step='1' value={slider} onChange={(e)=>ChangeFilterImage(e.target.value)}/>
-        </div>
-            <div className="filter">Sepia
-          <input className="rangeInput" type='range' min='0' max='100' step='1' value={slider2} onChange={(e)=>ChangeFilterImage2(e.target.value)}/>
-          </div>
-          <div className="filter">Brightness
-              <input className="rangeInput" type='range' min='0' max='300' step='1' value={slider3} onChange={(e)=>ChangeFilterImage3(e.target.value)}/>
-          </div>
-          <div className="filter">Contrast
-              <input className="rangeInput" type='range' min='0' max='200' step='1' value={slider4} onChange={(e)=>ChangeFilterImage4(e.target.value)}/>
-          </div>
-              <div className="filter">Ванильный фильтр
-                  <input className="rangeInput" type='range' min='0' max='1' step='0.1' value={sliderRed} onChange={(e)=>ChangeFilterImage5(e.target.value)}/>
-              </div>
-              <div className="filter">Ванилка2
-                  <input className="rangeInput" type='range' min='0' max='1' step='0.1' value={sliderGreen} onChange={(e)=>ChangeFilterImage6(e.target.value)} />
-              </div>
-              <div className="filter">Ванилка3
-                  <input className="rangeInput" type='range' min='0' max='1' step='0.1' value={sliderBlue} onChange={(e)=>ChangeFilterImage7(e.target.value)}/>
-              </div>
-              <div className="filter">чтото еще
-                  <input className="rangeInput" type='range' min='0' max='200' step='1' value={0} />
-              </div>
-
-          </div>
           </div>
   );
 }
