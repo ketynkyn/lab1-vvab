@@ -92,7 +92,12 @@ function App() {
         changeGrayscale()
 
     }
-
+    const handleDownload = () => {
+        const link = document.createElement('a');
+        link.download = 'image.jpg';
+        link.href = imageUrls;
+        link.click();
+    };
 
   return (
 
@@ -121,7 +126,7 @@ function App() {
         <input className="imgInput" type="file" id="file" accept="image/*" onChange={ChangeImage} hidden/>
         <div id="img-area" className="box"> {imageUrls.map(img=> <img id="img" src={img} alt="" width='auto' height='auto'/>)}</div>
               <button onClick={()=>document.getElementById("file").click()}>Вставить картинку</button>
-              <button>скачать</button>
+              <button onClick={handleDownload}>Cкачать</button>
           </div>
               <div className="rightPanel">
                   <div className="rightPanelInfo">Ванильный фильтр</div>
