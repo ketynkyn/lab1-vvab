@@ -92,22 +92,7 @@ function App() {
         changeGrayscale()
 
     }
-    const handleDownload = () => {
-        let File_Name = "img"
-        let canvas = document.querySelector('#image_canvas');
-        const context = canvas.getContext('2d');
-        image.style.filter = "grayscale("+slider+"%)"+"sepia("+slider2+"%)"+"brightness("+slider3+"%)"+"contrast("+slider4+"%)"+"url(#posterize)"
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
-        const jpegUrl = canvas.toDataURL("image/jpg");
 
-        const link = document.createElement("a");
-        document.body.appendChild(link);
-
-        link.setAttribute("href", jpegUrl);
-        link.setAttribute("download", File_Name);
-        link.click();
-        document.body.removeChild(link);
-    };
 
   return (
 
@@ -136,7 +121,7 @@ function App() {
         <input className="imgInput" type="file" id="file" accept="image/*" onChange={ChangeImage} hidden/>
         <div id="img-area" className="box"> {imageUrls.map(img=> <img id="img" src={img} alt="" width='auto' height='auto'/>)}</div>
               <button onClick={()=>document.getElementById("file").click()}>Вставить картинку</button>
-              <button onClick={handleDownload}>Cкачать</button>
+
           </div>
               <div className="rightPanel">
                   <div className="rightPanelInfo">Ванильный фильтр</div>
