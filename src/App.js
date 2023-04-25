@@ -93,10 +93,20 @@ function App() {
 
     }
     const handleDownload = () => {
-        const link = document.createElement('a');
-        link.download = 'image.jpg';
-        link.href = imageUrls;
+        let File_Name = "img"
+        let canvas = document.querySelector('#image_canvas');
+        const context = canvas.getContext('2d');
+        image.style.filter = "grayscale("+slider+"%)"+"sepia("+slider2+"%)"+"brightness("+slider3+"%)"+"contrast("+slider4+"%)"+"url(#posterize)"
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        const jpegUrl = canvas.toDataURL("image/jpg");
+
+        const link = document.createElement("a");
+        document.body.appendChild(link);
+
+        link.setAttribute("href", jpegUrl);
+        link.setAttribute("download", File_Name);
         link.click();
+        document.body.removeChild(link);
     };
 
   return (
