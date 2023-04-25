@@ -145,7 +145,6 @@ function App() {
                   </feComponentTransfer>
               </filter>
           </svg>
-          </div>
           <div className="footer">
           <footer>
               <p>
@@ -162,6 +161,7 @@ function App() {
               </p>
               </footer>
           </div>
+      </div>
       </div>
   );
 }
