@@ -95,7 +95,7 @@ function App() {
 
 
   return (
-
+      <div className="all">
       <div className="App">
 
           <div className="leftPanel">
@@ -146,6 +146,23 @@ function App() {
               </filter>
           </svg>
           </div>
+          <div className="footer">
+          <footer>
+              <p>
+                  Вобликов Валерий
+              </p>
+              <p>
+                  <a href="https://vk.com/ketynkyn"><img src="./asd.jpg"/></a>
+              </p>
+              <p>
+                  Втюрин Александр
+              </p>
+              <p>
+                  <a href="https://vk.com/mr.naught"> <img src="./asd.jpg"/></a>
+              </p>
+              </footer>
+          </div>
+      </div>
   );
 }
 
